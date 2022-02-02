@@ -10,13 +10,16 @@ services:
             - ADMIN_ROLE_ENABLED=1
             - AGENT_ID_MAPPING=agentA,agentB
             - INITIAL_AMMUNITION=3
-            - INITIAL_HP=3
+            - FIRE_SPAWN_INTERVAL_TICKS=2
+            - GAME_DURATION_TICKS=300
+            - GAME_START_DELAY_MS=500
+            - INITIAL_HP=2
             - PRNG_SEED=1234
             - SHUTDOWN_ON_GAME_END_ENABLED=1
             - TELEMETRY_ENABLED=1
-            - TICK_RATE_HZ=30
+            - TICK_RATE_HZ=50
             - TRAINING_MODE_ENABLED=0
-            - WORLD_SEED=1234
+#            - WORLD_SEED=1234
         networks:
             - coderone-tournament
 
@@ -32,47 +35,22 @@ services:
              - FWD_MODEL_CONNECTION_STRING=ws://fwd-server-a:6969/?role=admin
          depends_on:
              - game-server
-             - fwd-server-a
          networks:
              - coderone-tournament
-
-    fwd-server-a:
-        extends:
-            file: base-compose.yml
-            service: game-server
-        environment:
-            - TELEMETRY_ENABLED=0
-            - PORT=6969
-            - WORLD_SEED=1234
-            - PRNG_SEED=1234
-        networks:
-            - coderone-tournament
 
     agent-b:
         extends:
             file: base-compose.yml
             # update next line with a service in base-compose.yml to change agent
-            service: published-agent
+            service: enemy-agent
         environment:
             - GAME_CONNECTION_STRING=ws://game-server:3000/?role=agent&agentId=agentB&name=python3-agent
             - FWD_MODEL_CONNECTION_STRING=ws://fwd-server-b:6969/?role=admin
         depends_on:
             - game-server
-            - fwd-server-b
         networks:
             - coderone-tournament
         restart: on-failure
 
-    fwd-server-b:
-        extends:
-            file: base-compose.yml
-            service: game-server
-        environment:
-            - TELEMETRY_ENABLED=0
-            - PORT=6969
-            - WORLD_SEED=1234
-            - PRNG_SEED=1234
-        networks:
-            - coderone-tournament
 networks:
     coderone-tournament:
