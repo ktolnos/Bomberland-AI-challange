@@ -1,8 +1,9 @@
-from typing import Union
-from game_state import GameState
 import asyncio
-import random
 import os
+import random
+from typing import Union
+
+from game_state import GameState
 
 uri = os.environ.get(
     'GAME_CONNECTION_STRING') or "ws://127.0.0.1:3000/?role=agent&agentId=agentId&name=defaultName"
@@ -26,7 +27,7 @@ class Agent():
 
     # returns coordinates of the first bomb placed by a unit
     def _get_bomb_to_detonate(self, unit) -> Union[int, int] or None:
-        entities = self._client._state.get("entities")
+        entities = self._client.state.get("entities")
         bombs = list(filter(lambda entity: entity.get(
             "unit_id") == unit and entity.get("type") == "b", entities))
         bomb = next(iter(bombs or []), None)
