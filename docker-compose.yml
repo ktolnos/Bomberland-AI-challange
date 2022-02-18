@@ -17,7 +17,7 @@ services:
             - PRNG_SEED=1234
             - SHUTDOWN_ON_GAME_END_ENABLED=1
             - TELEMETRY_ENABLED=1
-            - TICK_RATE_HZ=30
+            - TICK_RATE_HZ=5
             - TRAINING_MODE_ENABLED=0
 #            - WORLD_SEED=1234
         networks:
@@ -29,7 +29,7 @@ services:
          extends:
              file: base-compose.yml
              # update next line with a service in base-compose.yml to change agent
-             service: agent
+             service: il-agent
          environment:
              - GAME_CONNECTION_STRING=ws://game-server:3000/?role=agent&agentId=agentA&name=python3-agent-dev
              - FWD_MODEL_CONNECTION_STRING=ws://fwd-server-a:6969/?role=admin
@@ -47,7 +47,7 @@ services:
         extends:
             file: base-compose.yml
             # update next line with a service in base-compose.yml to change agent
-            service: published-agent
+            service: enemy-agent
         environment:
             - GAME_CONNECTION_STRING=ws://game-server:3000/?role=agent&agentId=agentB&name=python3-agent
             - FWD_MODEL_CONNECTION_STRING=ws://fwd-server-b:6969/?role=admin

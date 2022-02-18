@@ -32,6 +32,11 @@ services:
             context: python3
             dockerfile: Dockerfile.rule
 
+    nn-agent:
+        build:
+            context: python3
+            dockerfile: Dockerfile.nn
+
     rule-agent-dev:
         build:
             context: python3
@@ -81,6 +86,9 @@ services:
 
     published-agent:
         image: docker.io/opryzhek/bombermann:good-search-2
+
+    il-agent:
+        image: docker.io/opryzhek/bombermann:il-1
 
     enemy-agent:
         image: public.docker.cloudgamepad.com/gocoder/f439u384k4554etg-baseline
