@@ -6,7 +6,8 @@ from websockets.client import WebSocketClientProtocol
 
 _move_set = set(("up", "down", "left", "right"))
 
-
+test = "long long long string long long long string long long long string long long long string long long long string" \
+       " long long long string "
 class GameState:
     def __init__(self, connection_string: str):
         self._connection_string = connection_string

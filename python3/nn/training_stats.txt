@@ -14,3 +14,26 @@ Epoch 5/5 | Loss: 2.9318 | Validation loss: 3.7154 | LR: 0.001000
 238it [00:05, 40.91it/s]
 2094it [01:33, 22.35it/s]
 238it [00:05, 40.56it/s]
+model_ResNet_1.5k_vs_enemy_corrected_weights.pth
+0it [00:00, ?it/s]
+cuda
+2092it [03:37,  9.61it/s]
+235it [00:14, 16.50it/s]
+0it [00:00, ?it/s]
+Epoch 1/5 | Loss: 3.6258 | Validation loss: 3.9269 | LR: 0.000905
+2092it [03:25, 10.17it/s]
+235it [00:13, 16.94it/s]
+0it [00:00, ?it/s]
+Epoch 2/5 | Loss: 3.2956 | Validation loss: 3.8872 | LR: 0.000655
+2092it [03:26, 10.15it/s]
+235it [00:13, 17.04it/s]
+0it [00:00, ?it/s]
+Epoch 3/5 | Loss: 3.1634 | Validation loss: 3.8123 | LR: 0.000346
+2092it [03:26, 10.14it/s]
+235it [00:13, 17.03it/s]
+0it [00:00, ?it/s]
+Epoch 4/5 | Loss: 3.0487 | Validation loss: 3.6287 | LR: 0.000096
+2092it [03:25, 10.18it/s]
+224it [00:13, 16.35it/s]
+Epoch 5/5 | Loss: 2.9695 | Validation loss: 3.5962 | LR: 0.001000
+235it [00:13, 17.01it/s]
