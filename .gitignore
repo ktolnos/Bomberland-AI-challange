@@ -1,3 +1,16 @@
 __pycache__/
 node_modules
 typescript/dist
+logs
+runs/arxiv
+dataset_big_separate_actions
+dataset_medium
+good-search-3_vs_enemy-baseline_1500
+good-search-3_vs_enemy-baseline_1500.zip
+runs/out
+self_play_replays
+replays_small
+tmp
+.ipynb_checkpoints/
+.idea/
+game-server-*
